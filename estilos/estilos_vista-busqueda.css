@@ -1,0 +1,27 @@
+.lista-resultado {
+    width: 1000px;
+    text-align: left;
+}
+
+.lista-resultado > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.lista-resultado > div:nth-child(even) {
+    background-color: #f22e8962;
+}
+
+.lista-resultado > div:nth-child(odd) {
+    background-color: #1d1626cb;
+}
+
+.lista-resultado > div > div {
+    box-sizing: border-box;
+    padding: 0.25em;
+}
+
+.primera-fila {
+    border-bottom: 1px solid white;
+    color: #f22e89;
+}

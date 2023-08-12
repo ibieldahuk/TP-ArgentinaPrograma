@@ -62,12 +62,6 @@ a:hover {
     background-color: var(--cf-principal-traslucido);
 }
 
-.cuerpo div {
-    display: flex;
-    justify-content: space-around;
-    margin: 1em 0;
-}
-
 .cuerpo h2 {
     margin-top: 2em;
 }
