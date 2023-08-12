@@ -1,0 +1,319 @@
+:root {
+    --cf-principal: #1D1626;
+    --cf-principal-contraste-1: #393341;
+    --cf-principal-contraste-2: #F2A663;
+    --cf-principal-contraste-3: #F22E8A;
+    --cf-principal-traslucido: #1d1626cb;
+}
+
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #1D1626;
+    background-image: url('../assets/wallpaperflare.com_wallpaper.jpg');
+    /* background-image: url('../assets/fondoOrig1.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.codigo {
+    background-color: #000;
+    color: #F2CA52;
+    border-radius: 5px;
+}
+
+#consigna {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+/* NUEVO */
+
+a {
+    max-width: 20%;
+    padding: 1.5em 0.25em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--cf-principal);
+}
+
+a:hover {
+    background-color: var(--cf-principal-contraste-1);
+}
+
+.cuerpo {
+    max-width: 1000px;
+    margin: 2em auto;
+    padding: 0 0.5em;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: var(--cf-principal-traslucido);
+}
+
+.cuerpo div {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 0;
+}
+
+.encabezado, .pie-de-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5em;
+    border-width: 1px;
+    border-color: var(--cf-principal-contraste-2);
+    color: var(--cf-principal-contraste-3);
+    background-color: var(--cf-principal);
+}
+
+.encabezado {
+    border-bottom-style: solid;
+}
+
+.actual {
+    background-color: var(--cf-principal-contraste-1);
+    cursor: default;
+}
+
+/* FIN NUEVO */
+
+
+
+
+
+
+
+/* .cuerpo-ejercicio {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+} */
+
+/* .cuerpo-index {
+    justify-content: space-around;
+} */
+
+#entrada, #salida {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: calc(49% - 0.5em);
+    margin: 0.5em;
+    /* min-height: 10em; */
+    box-sizing: border-box;
+}
+
+.formulario-entrada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.formulario-entrada * {
+    margin: 0.25em;
+}
+
+/* .formulario-entrada p {
+    margin-bottom: 0.05em;
+} */
+
+form input {
+    border-style: none;
+    border-radius: 5px;
+    background-color: #413948;
+    color: #fff;
+}
+
+form input[type=text] {
+    padding: 0.25em;
+    border-bottom-style: solid;
+}
+
+form input[type=text]:focus {
+    border-bottom-style: solid;
+}
+
+form input[type=submit] {
+    padding: 0.5em;
+    border-style: solid;
+}
+
+form input[type=submit]:focus {
+    border-style: solid;
+}
+
+form input[type=submit], form input[type=text] {
+    border-color: #1D1626;
+}
+
+form input[type=submit]:focus, form input[type=text]:focus {
+    outline: none;
+    border-color: #F22E8A;
+}
+
+form input[type=radio] {
+    appearance: none;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid #F22E8A;
+    border-radius: 50%;
+}
+
+form input[type=radio]:checked {
+    background-color: #F22E8A;
+}
+
+form input[type=radio]:hover, form input[type=submit]:hover {
+    cursor: pointer;
+}
+
+/* FORMULARIO DEL EJERCICIO 3 TP 5 */
+
+#form-tp5-ej3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-tp5-ej3 > * {
+    margin: 0.5em 0;
+}
+
+#form-tp5-ej3 > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#form-tp5-ej3 > div > div {
+    display: flex;
+    justify-content: center;
+}
+
+#form-tp5-ej3 > input {
+    width: auto;
+}
+
+/* FIN FORMULARIO DEL EJERCICIO 3 TP 5 */
+
+/* FORMULARIO DEL EJERCICIO 4 TP 5 */
+
+#form-tp5-ej4 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-tp5-ej4 > * {
+    margin: 0.5em 0;
+}
+
+#form-tp5-ej4 > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+#form-tp5-ej4 > div > * {
+    margin: 0;
+    /* padding: 0; */
+}
+
+/* FIN FORMULARIO DEL EJERCICIO 4 TP 5 */
+
+.resolucion {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.resolucion > img {
+    margin: 0.5em auto;
+}
+
+#salida div {
+    align-self: flex-start;
+}
+
+#salida .output {
+    color: #F22E8A;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #F2A663;
+    border-radius: 5px;
+}
+
+.tarjeta a/*, .encabezado a*/ {
+    padding: 0.1em 0;
+    text-align: center;
+    background-color: #1D1626;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.tarjeta a {
+    width: 100%;
+}
+
+.encabezado a {
+    padding: 0.5em;
+}
+
+.tarjeta a:hover/*, .encabezado a:hover */{
+    background-color: #413948;
+}
+
+.tarjeta h3 {
+    cursor: default;
+}
+
+#consigna, #entrada, #salida {
+    padding: 0.5em;
+}
+
+#entrada > *, #salida > * {
+    width: 100%;
+    margin: 0;
+}
+
+.err {
+    padding: 0.1em;
+    border-radius: 5px;
+    background-color: #f00;
+    color: #fff;
+    font-weight: bold;
+}
+
+.pie-de-pagina {
+    border-top-style: solid;
+}
+
+#pie-2 {
+    text-align: right;
+}
