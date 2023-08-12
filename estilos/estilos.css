@@ -68,6 +68,10 @@ a:hover {
     margin: 1em 0;
 }
 
+.cuerpo h2 {
+    margin-top: 2em;
+}
+
 .encabezado, .pie-de-pagina {
     display: flex;
     justify-content: space-between;
@@ -86,6 +90,15 @@ a:hover {
 .actual {
     background-color: var(--cf-principal-contraste-1);
     cursor: default;
+}
+
+.pie-de-pagina {
+    border-top-style: solid;
+    font-size: 14px;
+}
+
+#pie-2 {
+    text-align: right;
 }
 
 /* FIN NUEVO */
@@ -308,12 +321,4 @@ form input[type=radio]:hover, form input[type=submit]:hover {
     background-color: #f00;
     color: #fff;
     font-weight: bold;
-}
-
-.pie-de-pagina {
-    border-top-style: solid;
-}
-
-#pie-2 {
-    text-align: right;
 }
