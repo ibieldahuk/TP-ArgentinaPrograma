@@ -16,28 +16,56 @@
         </div>
     </nav>
     <main class="cuerpo">
-        <h1>Lista de usuarios</h1>
+        <?php
+        if (isset($_GET["vista"])) {
+            if ($_GET["vista"] == "usuarios") {
+                $titulo = "Lista de usuarios";
+                $primeraLinea = "<div>Nombre</div>
+                                 <div>Rol</div>
+                                 <div>Edad</div>";
+                $estilo = "grid-template-columns: repeat(3, 1fr);";
+                $sql = "SELECT * FROM `familiares`;";
+            } else if ($_GET["vista"] == "movimientos") {
+                $titulo = "Lista de movimientos";
+                $primeraLinea = "<div>Fecha</div>
+                                 <div>Tipo</div>
+                                 <div>Descripcion</div>
+                                 <div>Monto</div>
+                                 <div>Forma de pago</div>
+                                 <div>Responsable</div>";
+                $estilo = "grid-template-columns: repeat(6, 1fr);";
+                $sql = "SELECT * FROM `movimientos`;";
+            }
+        }
+        ?>
+        <h1><?php echo $titulo; ?></h1>
         <article class="lista-resultado">
             <?php
             require_once("funcionalidad/conexion.php");
             $enlace = conectar();
-            $sql = "SELECT * FROM `familiares`;";
             $resultado = mysqli_query($enlace, $sql);
             desconectar($enlace);
             ?>
-            <div class="primera-fila">
-                <div>Nombre</div>
-                <div>Rol</div>
-                <div>Edad</div>
+            <div class="primera-fila" style="<?php echo $estilo ?>">
+                <?php echo $primeraLinea; ?>
             </div>
             
             <?php
             while ($fila=mysqli_fetch_assoc($resultado)) {
             ?>
-            <div>
+            <div style="<?php echo $estilo ?>">
+            <?php if ($_GET["vista"] == "usuarios") { ?>
                 <div><?php echo $fila["nombre"]; ?></div>
                 <div><?php echo $fila["rol"]; ?></div>
                 <div><?php echo $fila["edad"]; ?></div>
+            <?php } else if ($_GET["vista"] == "movimientos") { ?>
+                <div><?php echo $fila["fecha"]; ?></div>
+                <div><?php echo $fila["tipo"]; ?></div>
+                <div><?php echo $fila["descripcion"]; ?></div>
+                <div><?php echo $fila["monto"]; ?></div>
+                <div><?php echo $fila["forma_de_pago"]; ?></div>
+                <div><?php echo $fila["id_familia"]; ?></div>
+            <?php } ?>
             </div>
             <?php
             }
