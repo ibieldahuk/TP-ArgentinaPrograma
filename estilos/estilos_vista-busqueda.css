@@ -5,7 +5,7 @@
 
 .lista-resultado > div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
 }
 
 .lista-resultado > div:nth-child(even) {
@@ -19,6 +19,21 @@
 .lista-resultado > div > div {
     box-sizing: border-box;
     padding: 0.25em;
+}
+
+.iconos {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.iconos i {
+    padding: 0 0.5em;
+    color: white;
+}
+
+.iconos i:hover {
+    color: gray;
 }
 
 .primera-fila {

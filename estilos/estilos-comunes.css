@@ -39,7 +39,7 @@ body {
 
 /* NUEVO */
 
-a {
+.encabezado a {
     max-width: 20%;
     padding: 1.5em 0.25em;
     border-radius: 5px;
@@ -48,7 +48,7 @@ a {
     background-color: var(--cf-principal);
 }
 
-a:hover {
+.encabezado a:hover {
     background-color: var(--cf-principal-contraste-1);
 }
 

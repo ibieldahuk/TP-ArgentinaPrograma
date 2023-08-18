@@ -6,6 +6,7 @@
     <title>Resultados</title>
     <link rel="stylesheet" href="estilos/estilos-comunes.css">
     <link rel="stylesheet" href="estilos/estilos_vista-busqueda.css">
+    <script src="https://kit.fontawesome.com/960d99f23d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="encabezado">
@@ -23,7 +24,7 @@
                 $primeraLinea = "<div>Nombre</div>
                                  <div>Rol</div>
                                  <div>Edad</div>";
-                $estilo = "grid-template-columns: repeat(3, 1fr);";
+                $estilo = "grid-template-columns: repeat(3, 4fr) 1fr;";
                 $sql = "SELECT * FROM `familiares`;";
             } else if ($_GET["vista"] == "movimientos") {
                 $titulo = "Lista de movimientos";
@@ -40,6 +41,7 @@
         ?>
         <h1><?php echo $titulo; ?></h1>
         <article class="lista-resultado">
+
             <?php
             require_once("funcionalidad/conexion.php");
             $enlace = conectar();
@@ -55,16 +57,42 @@
             ?>
             <div style="<?php echo $estilo ?>">
             <?php if ($_GET["vista"] == "usuarios") { ?>
-                <div><?php echo $fila["nombre"]; ?></div>
-                <div><?php echo $fila["rol"]; ?></div>
-                <div><?php echo $fila["edad"]; ?></div>
+                <div class="celda">
+                    <?php echo $fila["nombre"]; ?>
+                </div>
+                <div class="celda">
+                    <?php echo $fila["rol"]; ?>
+                </div>
+                <div class="celda">
+                    <?php echo $fila["edad"]; ?>
+                </div>
+                <div class="celda iconos">
+                    <a href="edicion-familiar.php?id=<?php echo $fila["id_familia"] ?>"><i class="fa-solid fa-pen"></i></a>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
             <?php } else if ($_GET["vista"] == "movimientos") { ?>
-                <div><?php echo $fila["fecha"]; ?></div>
-                <div><?php echo $fila["tipo"]; ?></div>
-                <div><?php echo $fila["descripcion"]; ?></div>
-                <div><?php echo $fila["monto"]; ?></div>
-                <div><?php echo $fila["forma_de_pago"]; ?></div>
-                <div><?php echo $fila["id_familia"]; ?></div>
+                <div class="celda">
+                    <?php echo $fila["fecha"]; ?>
+                </div>
+                <div class="celda">
+                    <?php echo $fila["tipo"]; ?>
+                </div>
+                <div class="celda">
+                    <?php echo $fila["descripcion"]; ?>
+                </div>
+                <div class="celda">
+                    <?php echo $fila["monto"]; ?>
+                </div>
+                <div class="celda">
+                    <?php echo $fila["forma_de_pago"]; ?>
+                </div>
+                <div class="celda">
+                    <?php echo $fila["id_familia"]; ?>
+                </div>
+                <div class="celda iconos">
+                <a href="edicion-movimiento.php?id=<?php echo $fila["id_familia"] ?>"><i class="fa-solid fa-pen"></i></a>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
             <?php } ?>
             </div>
             <?php
