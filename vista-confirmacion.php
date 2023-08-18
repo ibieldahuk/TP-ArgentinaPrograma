@@ -18,26 +18,40 @@
     </nav>
     <main class="cuerpo">
         <?php
-        if (isset($_GET["vista"])) {
-            if ($_GET["vista"] == "usuarios") {
-                $titulo = "Lista de usuarios";
-                $primeraLinea = "<div>Nombre</div>
-                                 <div>Rol</div>
-                                 <div>Edad</div>";
-                $estilo = "grid-template-columns: repeat(3, 4fr) 1fr;";
-                $sql = "SELECT * FROM `familiares`;";
-            } else if ($_GET["vista"] == "movimientos") {
-                $titulo = "Lista de movimientos";
-                $primeraLinea = "<div>Fecha</div>
-                                 <div>Tipo</div>
-                                 <div>Descripcion</div>
-                                 <div>Monto</div>
-                                 <div>Forma de pago</div>
-                                 <div>Responsable</div>";
-                $estilo = "grid-template-columns: repeat(6, 1fr);";
-                $sql = "SELECT * FROM `movimientos`;";
-            }
+        if ($_GET["vista"] == "usuario") {
+            $titulo = "¿Eliminar este familiar?";
+            $id = $_GET["id"];
+            $primeraLinea = "<div>Nombre</div>
+                                <div>Rol</div>
+                                <div>Edad</div>";
+            $estilo = "grid-template-columns: repeat(3, 4fr);";
+            $sql = "SELECT * FROM `familiares` WHERE `id_familia` = $id;";
+        } else if ($_GET["vista"] == "movimiento") {
+            $titulo = "¿Eliminar este movimiento?";
+            $id = $_GET["id"];
+            $primeraLinea = "<div>Fecha</div>
+                                <div>Tipo</div>
+                                <div>Descripcion</div>
+                                <div>Monto</div>
+                                <div>Forma de pago</div>
+                                <div>Responsable</div>";
+            $estilo = "grid-template-columns: repeat(6, 2fr);";
+            $sql = "SELECT * FROM `movimientos` WHERE `id_mov` = $id;";
         }
+        if (isset($_GET["del"]) && $_GET["del"]) {
+            $sql = "";
+            $id = $_GET["id"];
+            if ($_GET["vista"] == "movimiento") {
+                $sql = "DELETE FROM `movimientos` WHERE `id_mov` = $id;";
+            } else {
+                $sql = "DELETE FROM `familiares` WHERE `id_familia` = $id;";
+            }
+            require_once("funcionalidad/conexion.php");
+            $enlace = conectar();
+            mysqli_query($enlace, $sql);
+            desconectar($enlace);
+        ?><h1>Borrado con éxito</h1><?php
+        } else {
         ?>
         <h1><?php echo $titulo; ?></h1>
         <article class="lista-resultado">
@@ -53,10 +67,10 @@
             </div>
             
             <?php
-            while ($fila=mysqli_fetch_assoc($resultado)) {
+            $fila=mysqli_fetch_array($resultado)
             ?>
             <div style="<?php echo $estilo ?>">
-            <?php if ($_GET["vista"] == "usuarios") { ?>
+            <?php if ($_GET["vista"] == "usuario") { ?>
                 <div class="celda">
                     <?php echo $fila["nombre"]; ?>
                 </div>
@@ -66,11 +80,9 @@
                 <div class="celda">
                     <?php echo $fila["edad"]; ?>
                 </div>
-                <div class="celda iconos">
-                    <a href="edicion-familiar.php?id=<?php echo $fila["id_familia"] ?>"><i class="fa-solid fa-pen"></i></a>
-                    <a href="vista-confirmacion.php?vista=usuario&id=<?php echo $fila["id_familia"] ?>"><i class="fa-solid fa-trash"></i></a>
-                </div>
-            <?php } else if ($_GET["vista"] == "movimientos") { ?>
+                <a href="vista-confirmacion.php?vista=usuario&id=<?php echo $id; ?>&del=true">Aceptar</a>
+                <a href="vista-de-busqueda.php?vista=usuarios">Cancelar</a>
+            <?php } else if ($_GET["vista"] == "movimiento") { ?>
                 <div class="celda">
                     <?php echo $fila["fecha"]; ?>
                 </div>
@@ -89,17 +101,12 @@
                 <div class="celda">
                     <?php echo $fila["id_familia"]; ?>
                 </div>
-                <div class="celda iconos">
-                    <a href="edicion-movimiento.php?id=<?php echo $fila["id_mov"] ?>"><i class="fa-solid fa-pen"></i></a>
-                    <a href="vista-confirmacion.php?vista=movimiento&id=<?php echo $fila["id_mov"] ?>"><i class="fa-solid fa-trash"></i></a>
-                </div>
+                <a href="vista-confirmacion.php?vista=movimiento&id=<?php echo $id; ?>&del=true">Aceptar</a>
+                <a href="vista-de-busqueda.php?vista=movimientos">Cancelar</a>
             <?php } ?>
             </div>
-            <?php
-            }
-            ?>
-            
         </article>
+        <?php } ?>
     </main>
     <footer class="pie-de-pagina">
         <article id='pie-1'><p>Eldahuk, Ibi Khalil Adib</p><p>Trabajo Práctico Integrador</p></article>
