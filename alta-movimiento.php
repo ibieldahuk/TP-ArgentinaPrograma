@@ -13,7 +13,6 @@
         <h2>S.U.R.F.</h2>
         <div>
             <a href="index.html" class="actual">Página principal</a>
-            <a href="busqueda.php">Búsqueda avanzada</a>
         </div>
     </nav>
     <main class="cuerpo">
@@ -21,7 +20,6 @@
         if (isset($_POST["fecha"]) && isset($_POST["tipo"]) && isset($_POST["descripcion"]) && isset($_POST["monto"]) && isset($_POST["forma-pago"]) && isset($_POST["familiar"])) {
             require_once("funcionalidad/conexion.php");
             $enlace = conectar();
-            echo "entramos";
             $id = mysqli_num_rows(mysqli_query($enlace, "SELECT * FROM `movimientos`")) + 1;
             $fecha = $_POST["fecha"];
             $tipo = $_POST["tipo"];
@@ -33,7 +31,7 @@
             mysqli_query($enlace, $sql);
             desconectar($enlace);
         ?>
-        <h1>Se dio de alta el familiar</h1>
+        <h1>Se dio de alta el movimiento</h1>
         <?php
         } else {
         ?>

@@ -6,6 +6,7 @@
     <title>Resultados</title>
     <link rel="stylesheet" href="estilos/estilos-comunes.css">
     <link rel="stylesheet" href="estilos/estilos_vista-busqueda.css">
+    <link rel="stylesheet" href="estilos/estilos-confirmacion.css">
     <script src="https://kit.fontawesome.com/960d99f23d.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -13,7 +14,6 @@
         <h2>S.U.R.F.</h2>
         <div>
             <a href="index.html">Página principal</a>
-            <a href="busqueda.php">Búsqueda avanzada</a>
         </div>
     </nav>
     <main class="cuerpo">
@@ -80,8 +80,6 @@
                 <div class="celda">
                     <?php echo $fila["edad"]; ?>
                 </div>
-                <a href="vista-confirmacion.php?vista=usuario&id=<?php echo $id; ?>&del=true">Aceptar</a>
-                <a href="vista-de-busqueda.php?vista=usuarios">Cancelar</a>
             <?php } else if ($_GET["vista"] == "movimiento") { ?>
                 <div class="celda">
                     <?php echo $fila["fecha"]; ?>
@@ -101,10 +99,12 @@
                 <div class="celda">
                     <?php echo $fila["id_familia"]; ?>
                 </div>
-                <a href="vista-confirmacion.php?vista=movimiento&id=<?php echo $id; ?>&del=true">Aceptar</a>
-                <a href="vista-de-busqueda.php?vista=movimientos">Cancelar</a>
             <?php } ?>
             </div>
+            <span class="botones">
+                <a href="vista-confirmacion.php?vista=<?php echo $_GET["vista"]; ?>&id=<?php echo $id; ?>&del=true">Aceptar</a>
+                <a href="vista-de-busqueda.php?vista=<?php echo $_GET["vista"]; ?>s">Cancelar</a>
+            </span>
         </article>
         <?php } ?>
     </main>

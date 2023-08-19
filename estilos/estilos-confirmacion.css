@@ -1,12 +1,7 @@
-.cuerpo div {
-    display: flex;
-    justify-content: space-around;
-    margin: 1em 0;
-}
-
 .cuerpo a {
     max-width: 20%;
-    padding: 1.5em 0.25em;
+    padding: 0.25em 0.25em;
+    margin: 1em;
     border-radius: 5px;
     text-decoration: none;
     color: white;
@@ -16,4 +11,10 @@
 .cuerpo a:hover {
     background-color: var(--cf-principal-contraste-1);
     cursor: pointer;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

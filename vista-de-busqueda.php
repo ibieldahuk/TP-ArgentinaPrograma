@@ -13,7 +13,6 @@
         <h2>S.U.R.F.</h2>
         <div>
             <a href="index.html">Página principal</a>
-            <a href="busqueda.php">Búsqueda avanzada</a>
         </div>
     </nav>
     <main class="cuerpo">
@@ -34,7 +33,7 @@
                                  <div>Monto</div>
                                  <div>Forma de pago</div>
                                  <div>Responsable</div>";
-                $estilo = "grid-template-columns: repeat(6, 1fr);";
+                $estilo = "grid-template-columns: repeat(6, 2fr) 1fr;";
                 $sql = "SELECT * FROM `movimientos`;";
             }
         }

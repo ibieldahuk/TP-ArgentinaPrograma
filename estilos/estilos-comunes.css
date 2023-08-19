@@ -50,6 +50,7 @@ body {
 
 .encabezado a:hover {
     background-color: var(--cf-principal-contraste-1);
+    cursor: pointer;
 }
 
 .cuerpo {

@@ -13,7 +13,6 @@
         <h2>S.U.R.F.</h2>
         <div>
             <a href="index.html" class="actual">Página principal</a>
-            <a href="busqueda.php">Búsqueda avanzada</a>
         </div>
     </nav>
     <main class="cuerpo">
